@@ -1,0 +1,39 @@
+version: '3.8'
+
+networks:
+  local:
+
+volumes:
+  pgdata:
+
+services:
+  source_database:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password1!
+      POSTGRES_DB: postgres
+    ports:
+      - 31451:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - local
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
+      interval: 5s
+      retries: 10
+      start_period: 10s
+      timeout: 5s
+
+  sqlmesh:
+    build: .
+    networks:
+      - local
+    depends_on:
+      source_database:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    command: ["bash", "-c", "sqlmesh plan && python alert.py"]
+

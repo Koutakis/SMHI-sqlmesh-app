@@ -1,0 +1,235 @@
+2025-07-04 08:44:35,099 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:453)
+2025-07-04 08:44:36,606 - MainThread - sqlmesh.core.plan.evaluator - INFO - Evaluating plan stage PhysicalLayerUpdateStage (evaluator.py:119)
+2025-07-04 08:44:36,608 - ThreadPoolExecutor-1_0 - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema postgres.sqlmesh__sqlmesh_example (evaluator.py:350)
+2025-07-04 08:44:36,609 - ThreadPoolExecutor-1_1 - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema postgres.sqlmesh__fiktiv (evaluator.py:350)
+2025-07-04 08:44:36,610 - ThreadPoolExecutor-1_2 - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema postgres.sqlmesh__kaggle (evaluator.py:350)
+2025-07-04 08:44:36,616 - ThreadPoolExecutor-1_0 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT current_catalog (base.py:2244)
+2025-07-04 08:44:36,630 - ThreadPoolExecutor-1_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT current_catalog (base.py:2244)
+2025-07-04 08:44:36,637 - ThreadPoolExecutor-1_2 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT current_catalog (base.py:2244)
+2025-07-04 08:44:36,661 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'postgres.sqlmesh__sqlmesh_example' (evaluator.py:1143)
+2025-07-04 08:44:36,668 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE SCHEMA IF NOT EXISTS "sqlmesh__sqlmesh_example" (base.py:2244)
+2025-07-04 08:44:36,670 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'postgres.sqlmesh__kaggle' (evaluator.py:1143)
+2025-07-04 08:44:36,670 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE SCHEMA IF NOT EXISTS "sqlmesh__kaggle" (base.py:2244)
+2025-07-04 08:44:36,675 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'postgres.sqlmesh__fiktiv' (evaluator.py:1143)
+2025-07-04 08:44:36,675 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE SCHEMA IF NOT EXISTS "sqlmesh__fiktiv" (base.py:2244)
+2025-07-04 08:44:36,687 - ThreadPoolExecutor-2_0 - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'postgres.sqlmesh__fiktiv.fiktiv__test_patient_data__3222781814' (evaluator.py:1495)
+2025-07-04 08:44:36,688 - ThreadPoolExecutor-2_0 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE TABLE IF NOT EXISTS "sqlmesh__fiktiv"."fiktiv__test_patient_data__3222781814" ("identifier" TEXT, "source" TEXT, "comment" TEXT, "added_by" TEXT, "valid_pin" BOOLEAN, "last_modified" TEXT) (base.py:2244)
+2025-07-04 08:44:36,696 - ThreadPoolExecutor-2_1 - sqlmesh.core.snapshot.evaluator - INFO - Creating table 'postgres.sqlmesh__kaggle.kaggle__kaggle_data_model__722559528' (evaluator.py:1495)
+2025-07-04 08:44:36,697 - ThreadPoolExecutor-2_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE TABLE IF NOT EXISTS "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number" INT, "date" TIMESTAMP) (base.py:2244)
+2025-07-04 08:44:36,719 - MainThread - sqlmesh.core.plan.evaluator - INFO - Evaluating plan stage BackfillStage (evaluator.py:119)
+2025-07-04 08:44:36,723 - ThreadPoolExecutor-3_0 - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"postgres"."fiktiv"."test_patient_data": 1494105077> (evaluator.py:636)
+2025-07-04 08:44:36,724 - ThreadPoolExecutor-3_1 - sqlmesh.core.snapshot.evaluator - INFO - Evaluating snapshot SnapshotId<"postgres"."kaggle"."kaggle_data_model": 1338378483> (evaluator.py:636)
+2025-07-04 08:44:37,928 - ThreadPoolExecutor-3_1 - sqlmesh.core.snapshot.evaluator - INFO - Inserting batch (2025-07-02 00:00:00, 2025-07-03 00:00:00) into postgres.sqlmesh__kaggle.kaggle__kaggle_data_model__722559528' (evaluator.py:690)
+2025-07-04 08:44:37,936 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT 1 FROM "information_schema"."tables" WHERE "table_name" = 'kaggle__kaggle_data_model__722559528' AND "table_schema" = 'sqlmesh__kaggle' (base.py:2244)
+2025-07-04 08:44:37,945 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: DELETE FROM "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" WHERE TRUE (base.py:2244)
+2025-07-04 08:44:37,953 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:37,967 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:37,981 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:37,994 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,007 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,022 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,035 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,049 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,062 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,077 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,178 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,190 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,203 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,215 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,227 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,240 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,243 - ThreadPoolExecutor-3_1 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: INSERT INTO "sqlmesh__kaggle"."kaggle__kaggle_data_model__722559528" ("store_number", "date") SELECT CAST("store_number" AS INT) AS "store_number", CAST("date" AS TIMESTAMP) AS "date" FROM (VALUES "<REDACTED VALUES>") AS "t"("store_number", "date") (base.py:2244)
+2025-07-04 08:44:38,258 - ThreadPoolExecutor-3_1 - sqlmesh.core.state_sync.db.facade - INFO - Adding interval (2025-07-02 00:00:00, 2025-07-03 00:00:00) for snapshot SnapshotId<"postgres"."kaggle"."kaggle_data_model": 1338378483> (facade.py:621)
+2025-07-04 08:44:38,258 - ThreadPoolExecutor-3_1 - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"postgres"."kaggle"."kaggle_data_model": 1338378483> (interval.py:214)
+2025-07-04 08:44:38,271 - MainThread - sqlmesh.core.scheduler - INFO - Execution failed for node ('"postgres"."fiktiv"."test_patient_data"', ((1751414400000, 1751500800000), 0)) (scheduler.py:483)
+Traceback (most recent call last):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7dd9fb903e00>: Failed to resolve 'testpatientlisa.apps.ocp.mta.karolinska.se' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='testpatientlisa.apps.ocp.mta.karolinska.se', port=443): Max retries exceeded with url: /testpatient/retrieve (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7dd9fb903e00>: Failed to resolve 'testpatientlisa.apps.ocp.mta.karolinska.se' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 1789, in render
+    df_or_iter = env[self.entrypoint](
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 3, in execute
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='testpatientlisa.apps.ocp.mta.karolinska.se', port=443): Max retries exceeded with url: /testpatient/retrieve (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7dd9fb903e00>: Failed to resolve 'testpatientlisa.apps.ocp.mta.karolinska.se' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 69, in _process_node
+    self.fn(node)
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/scheduler.py", line 442, in evaluate_node
+    audit_results = self.evaluate(
+                    ^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/scheduler.py", line 183, in evaluate
+    wap_id = self.snapshot_evaluator.evaluate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 159, in evaluate
+    result = self._evaluate_snapshot(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 787, in _evaluate_snapshot
+    for index, query_or_df in enumerate(queries_or_dfs):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 1800, in render
+    raise PythonModelEvalError(format_evaluated_code_exception(e, self.python_env))
+sqlmesh.utils.errors.PythonModelEvalError:   File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+socket.gaierror: [Errno -2] Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+
+  urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7dd9fb903e00>: Failed to resolve 'testpatientlisa.apps.ocp.mta.karolinska.se' ([Errno -2] Name or service not known)
+
+
+The above exception was the direct cause of the following exception:
+
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='testpatientlisa.apps.ocp.mta.karolinska.se', port=443): Max retries exceeded with url: /testpatient/retrieve (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7dd9fb903e00>: Failed to resolve 'testpatientlisa.apps.ocp.mta.karolinska.se' ([Errno -2] Name or service not known)"))
+
+
+During handling of the above exception, another exception occurred:
+
+
+  File 'models/get_patients.py' (or imported file), line 3, in execute
+    def execute(context: ExecutionContext, start: datetime, end: datetime,
+        execution_time: datetime, **kwargs: t.Any):
+        response = requests.get(
+    File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+
+      requests.exceptions.ConnectionError: HTTPSConnectionPool(host='testpatientlisa.apps.ocp.mta.karolinska.se', port=443): Max retries exceeded with url: /testpatient/retrieve (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7dd9fb903e00>: Failed to resolve 'testpatientlisa.apps.ocp.mta.karolinska.se' ([Errno -2] Name or service not known)"))
+
+
+The above exception was the direct cause of the following exception:
+
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node ('"postgres"."fiktiv"."test_patient_data"', ((1751414400000, 1751500800000), 0))
+2025-07-04 08:44:38,282 - MainThread - sqlmesh.core.context - INFO - Plan application failed. (context.py:1607)
+Traceback (most recent call last):
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/context.py", line 1599, in apply
+    self._apply(plan, circuit_breaker)
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/context.py", line 2392, in _apply
+    self._scheduler.create_plan_evaluator(self).evaluate(
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 102, in evaluate
+    self._evaluate_stages(plan_stages, plan)
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 121, in _evaluate_stages
+    handler(stage, plan)
+  File "/home/hq0x/github/postgres/venv/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 242, in visit_backfill_stage
+    raise PlanError("Plan application failed.")
+sqlmesh.utils.errors.PlanError: Plan application failed.
+2025-07-04 08:44:38,283 - MainThread - root - INFO - Shutting down the event dispatcher (dispatcher.py:159)
