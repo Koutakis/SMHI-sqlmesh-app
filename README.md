@@ -13,9 +13,9 @@ This repository contains a SQLMesh-based application that fetches weather warnin
 
 ### Prerequisites
 
-- Docker
+- Docker (desktop)
 - Docker Compose
-- Optionally: Python 3.12 and `sqlmesh` installed locally
+- Python 3.12 and `sqlmesh` installed locally
 
 ### Build and run with Docker Compose
 
