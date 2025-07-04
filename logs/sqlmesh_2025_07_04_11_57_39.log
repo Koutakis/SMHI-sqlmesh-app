@@ -1,3 +1,0 @@
-2025-07-04 11:57:40,236 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:453)
-2025-07-04 11:57:40,317 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Connection to the database was lost. Reconnecting... (base.py:2164)
-2025-07-04 11:57:40,327 - MainThread - root - INFO - Shutting down the event dispatcher (dispatcher.py:159)
