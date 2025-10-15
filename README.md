@@ -1,4 +1,4 @@
-# SMHI SQLMesh App
+öl# SMHI SQLMesh App
 
 This repository contains a SQLMesh-based application that fetches weather warnings from the SMHI API and processes the data for further analysis or alerting. The application is containerized using Docker and can be integrated into automated workflows (e.g. k3s, cron jobs).
 
@@ -32,6 +32,3 @@ Update connection settings in `config.yaml` to match your database and environme
 
 Feel free to submit pull requests or open issues for enhancements, bug fixes, or improvements.
 
-## License
-
-Specify your license here (e.g. MIT, Apache 2.0).
